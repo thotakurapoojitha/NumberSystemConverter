@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number System Cards</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center p-4">
+        <div class="card shadow-lg border-0 converter-card">
+            <div class="card-header bg-gradient-primary text-white text-center py-4">
+                <i class="bi bi-calculator-fill display-4 mb-3"></i>
+                <h1 class="card-title mb-0 fw-bold">Number System Converter</h1>
+                <p class="mb-0 opacity-75">Type once, view in all bases</p>
+            </div>
+            <div class="card-body p-4 p-md-5">
+                <!-- Input row -->
+                <div class="row g-3 mb-4 align-items-end">
+                    <div class="col-md-4">
+                        <label class="form-label fw-bold">Input Base</label>
+                        <select class="form-select" id="inputBase">
+                            <option value="10">Decimal (10)</option>
+                            <option value="2">Binary (2)</option>
+                            <option value="8">Octal (8)</option>
+                            <option value="16">Hexadecimal (16)</option>
+                        </select>
+                    </div>
+                    <div class="col-md-8">
+                        <label class="form-label fw-bold">Enter Number</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light">
+                                <i class="bi bi-input-cursor-text"></i>
+                            </span>
+                            <input type="text" class="form-control from-input" id="inputNumber" placeholder="Type your number here...">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Status -->
+                <div class="row mb-4">
+                    <div class="col">
+                        <div class="alert alert-info shadow-sm mb-0" id="status">
+                            <i class="bi bi-info-circle"></i> Start typing to see all conversions.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cards row: responsive 1 / 2 / 4 -->
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                    <!-- Decimal card -->
+                    <div class="col">
+                        <div class="card number-card h-100 shadow-sm border border-4 border-primary">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="badge bg-primary">Base 10</span>
+                                    <i class="bi bi-123 fs-4 text-primary"></i>
+                                </div>
+                                <h5 class="card-title mb-1">Decimal</h5>
+                                <p class="card-subtitle text-muted mb-3">0–9</p>
+                                <p class="display-6 mb-3" id="decValue">0</p>
+                                <button class="btn btn-sm btn-outline-primary w-100 copy-btn" data-target="decValue">
+                                    <i class="bi bi-clipboard"></i> Copy
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Binary card -->
+                    <div class="col">
+                        <div class="card number-card h-100 shadow-sm border border-4 border-success">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="badge bg-success">Base 2</span>
+                                    <i class="bi bi-slash-square fs-4 text-success"></i>
+                                </div>
+                                <h5 class="card-title mb-1">Binary</h5>
+                                <p class="card-subtitle text-muted mb-3">0–1</p>
+                                <p class="display-6 mb-3" id="binValue">0</p>
+                                <button class="btn btn-sm btn-outline-success w-100 copy-btn" data-target="binValue">
+                                    <i class="bi bi-clipboard"></i> Copy
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Octal card -->
+                    <div class="col">
+                        <div class="card number-card h-100 shadow-sm border border-4 border-warning">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="badge bg-warning text-dark">Base 8</span>
+                                    <i class="bi bi-grid-3x3-gap fs-4 text-warning"></i>
+                                </div>
+                                <h5 class="card-title mb-1">Octal</h5>
+                                <p class="card-subtitle text-muted mb-3">0–7</p>
+                                <p class="display-6 mb-3" id="octValue">0</p>
+                                <button class="btn btn-sm btn-outline-warning w-100 copy-btn" data-target="octValue">
+                                    <i class="bi bi-clipboard"></i> Copy
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hex card -->
+                    <div class="col">
+                        <div class="card number-card h-100 shadow-sm border border-4 border-danger">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="badge bg-danger">Base 16</span>
+                                    <i class="bi bi-heptagon-half fs-4 text-danger"></i>
+                                </div>
+                                <h5 class="card-title mb-1">Hexadecimal</h5>
+                                <p class="card-subtitle text-muted mb-3">0–9, A–F</p>
+                                <p class="display-6 mb-3" id="hexValue">0</p>
+                                <button class="btn btn-sm btn-outline-danger w-100 copy-btn" data-target="hexValue">
+                                    <i class="bi bi-clipboard"></i> Copy
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- /row -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
